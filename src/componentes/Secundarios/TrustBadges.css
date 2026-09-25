@@ -1,0 +1,62 @@
+.trust-badges {
+  background-color: #F8FAFC;
+  padding: 4.5rem 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.trust-badges h4 {
+  color: #3B82F6;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  padding: 0 5%;
+}
+
+/* Carrusel infinito: duplicamos la lista y desplazamos el 50% exacto */
+.trust-marquee {
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+
+.trust-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: trust-scroll 28s linear infinite;
+}
+
+.trust-marquee:hover .trust-track {
+  animation-play-state: paused;
+}
+
+.trust-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: white;
+  border: 1px solid #E2E8F0;
+  border-radius: 30px;
+  padding: 0.7rem 1.3rem;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.trust-chip svg {
+  color: #2563EB;
+}
+
+@keyframes trust-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trust-track { animation: none; }
+}

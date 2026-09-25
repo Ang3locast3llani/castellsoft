@@ -1,0 +1,311 @@
+/* Variables Globales */
+:root {
+  --bg-dark: #07090e;
+  --text-light: #e2e8f0;
+  --cyan-neon: #00d2ff;
+  --violet-neon: #8a2be2;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+body.dark-theme {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+
+/* --- Botón de Menú --- */
+.float-menu-btn {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.float-menu-btn:hover {
+  border-color: var(--cyan-neon);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+}
+
+.float-menu-btn .line {
+  width: 20px;
+  height: 2px;
+  background-color: var(--text-light);
+  transition: 0.3s;
+}
+
+.float-menu-btn.active .line:nth-child(1) { transform: translateY(8px) rotate(45deg); background: var(--cyan-neon); }
+.float-menu-btn.active .line:nth-child(2) { opacity: 0; }
+.float-menu-btn.active .line:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background: var(--violet-neon); }
+
+/* --- Menú Pantalla Completa --- */
+.fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(7, 9, 14, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.fullscreen-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.menu-links {
+  list-style: none;
+  text-align: center;
+}
+
+.menu-item {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-light);
+  text-decoration: none;
+  display: block;
+  margin: 1.5rem 0;
+  transition: all 0.3s ease;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.fullscreen-overlay.active .menu-item {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.menu-item:hover {
+  color: var(--cyan-neon);
+  text-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+  transform: scale(1.05);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+/* Grilla tecnológica de fondo, muy sutil, con un lento paneo para dar
+   sensación de profundidad/inmersión sin distraer del contenido */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 45%, black 40%, transparent 90%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 45%, black 40%, transparent 90%);
+  animation: grid-drift 40s linear infinite;
+  z-index: -1;
+}
+
+@keyframes grid-drift {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 96px 48px, 96px 48px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-section::before { animation: none; }
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.cyan-orb {
+  width: 400px;
+  height: 400px;
+  background: var(--cyan-neon);
+  top: -100px;
+  left: -100px;
+}
+
+.violet-orb {
+  width: 300px;
+  height: 300px;
+  background: var(--violet-neon);
+  bottom: -50px;
+  right: -50px;
+}
+
+.hero-content {
+  max-width: 800px;
+  z-index: 1;
+  /* Esta clase será manipulada por JS para el efecto 3D */
+  transition: transform 0.1s ease-out; 
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  color: #94a3b8;
+  margin-bottom: 3rem;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--cyan-neon), var(--violet-neon));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Botones */
+.btn-primary, .btn-secondary {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--cyan-neon), var(--violet-neon));
+  color: white;
+  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(138, 43, 226, 0.5);
+}
+
+.btn-secondary {
+  background: var(--glass-bg);
+  color: var(--text-light);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  margin-left: 1rem;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--text-light);
+}
+
+/* --- App Global Styles --- */
+.app-container {
+  position: relative;
+  width: 100%;
+}
+
+/* --- Landing (intro + Home): bloquea el scroll mientras se muestra la intro --- */
+.landing-shell {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden; /* Evita scroll mientras estamos en la intro */
+}
+
+/* Permitir scroll una vez que el Home principal está visible */
+.landing-shell:has(.fade-in-enter) {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* --- Animación de Salida de la Introducción (El Telón) --- */
+.intro-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 50;
+  background-color: #0B1120; /* Color de fondo oscuro de tu intro */
+  transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1.5s ease;
+}
+
+.intro-wrapper.slide-up-exit {
+  transform: translateY(-100vh); /* Se desliza hacia arriba */
+  opacity: 0; /* Se desvanece sutilmente */
+  pointer-events: none; /* Desactiva clics mientras desaparece */
+}
+
+/* --- Asegurar que tu Splash Screen ocupe toda la pantalla --- */
+.splash-screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- Animación de Entrada del Home Principal --- */
+.main-content-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  z-index: 10;
+}
+
+.main-content-wrapper.hidden {
+  display: none;
+}
+
+.main-content-wrapper.fade-in-enter {
+  display: block;
+  animation: revealHome 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes revealHome {
+  0% {
+    opacity: 0;
+    transform: translateY(100px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

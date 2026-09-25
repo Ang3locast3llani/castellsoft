@@ -1,0 +1,68 @@
+.value-props {
+  background-color: #FFFFFF;
+  padding: 6rem 5%;
+  text-align: center;
+}
+
+.value-props-eyebrow {
+  display: block;
+  color: #3B82F6;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.value-props-title {
+  font-size: 2.5rem;
+  margin: 1rem 0 3.5rem;
+  color: #1E293B;
+}
+
+.text-blue { color: #2563EB; }
+
+.value-props-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.value-card {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.12);
+  border-color: #BFDBFE;
+}
+
+.value-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: #2563EB;
+  background: linear-gradient(135deg, #DBEAFE, #EFF6FF);
+}
+
+.value-card h4 {
+  font-size: 1.15rem;
+  color: #1E293B;
+  margin-bottom: 0.6rem;
+}
+
+.value-card p {
+  color: #64748B;
+  line-height: 1.5;
+}

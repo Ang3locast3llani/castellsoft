@@ -1,0 +1,162 @@
+/* Entorno claro y limpio "Friendly Tech" */
+.simulator-wrapper {
+  background-color: #FAFBFF;
+  padding: 6rem 5%;
+  color: #1E293B;
+  text-align: center;
+}
+
+.simulator-header h2 {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+}
+
+.text-blue { color: #2563EB; }
+.badge-light {
+  color: #2563EB;
+  background: #DBEAFE;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.simulator-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 3rem auto 0;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .simulator-layout {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+}
+
+/* Botones de Canales (Izquierda) */
+.channels-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 250px;
+}
+
+.channel-btn {
+  background: white;
+  border: 2px dashed #CBD5E1;
+  padding: 1rem;
+  border-radius: 12px;
+  font-weight: 600;
+  color: #475569;
+  cursor: grab;
+  transition: border-color 0.3s, color 0.3s, background 0.3s;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  user-select: none;
+  position: relative;
+}
+
+.channel-btn:active { cursor: grabbing; }
+
+.channel-icon { flex-shrink: 0; color: #94A3B8; transition: color 0.3s; }
+
+/* Sin transform en hover: el drag de framer-motion ya controla ese canal via
+   estilo inline, así que la señal de hover se da por color/sombra en su lugar. */
+.channel-btn:hover { border-color: #3B82F6; color: #2563EB; box-shadow: 0 6px 16px rgba(59, 130, 246, 0.15); }
+.channel-btn:hover .channel-icon { color: #3B82F6; }
+.channel-btn.connected {
+  background: #EFF6FF;
+  border: 2px solid #3B82F6;
+  color: #1D4ED8;
+}
+.channel-btn.connected .channel-icon { color: #2563EB; }
+
+.channel-check {
+  margin-left: auto;
+  color: #10B981;
+  font-weight: 800;
+}
+
+/* Procesador Central */
+.agent-processor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.processor-ring {
+  width: 100px;
+  height: 100px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3B82F6;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  border: 4px solid #E2E8F0;
+  transition: border-color 0.5s, color 0.5s, transform 0.4s;
+}
+
+.processor-ring.success { border-color: #10B981; color: #10B981; transform: scale(1.06); }
+
+/* Cuando un canal se arrastra encima, el "aro" del agente se ilumina para
+   indicar que ahí es donde hay que soltarlo */
+.processor-ring.drag-hover {
+  border-color: #3B82F6;
+  color: #2563EB;
+  transform: scale(1.12);
+  box-shadow: 0 0 0 10px rgba(59, 130, 246, 0.12);
+}
+
+.progress-bar-container {
+  width: 200px;
+  height: 8px;
+  background: #E2E8F0;
+  border-radius: 4px;
+  margin-top: 1.5rem;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #3B82F6;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.status-text { margin-top: 1rem; font-weight: bold; color: #64748B; }
+
+/* Dashboard Reveal (Derecha) */
+.dashboard-reveal {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 350px;
+  text-align: left;
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.dashboard-reveal.hidden { opacity: 0; transform: translateY(20px); pointer-events: none; }
+.dashboard-reveal.visible { opacity: 1; transform: translateY(0); }
+
+.dashboard-reveal h3 { font-size: 1.1rem; margin-bottom: 1.5rem; color: #1E293B; }
+
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.stat-card { background: #F8FAFC; padding: 1rem; border-radius: 8px; }
+.stat-card h4 { font-size: 0.8rem; color: #64748B; margin-bottom: 0.5rem; }
+.stat-number { font-size: 1.5rem; font-weight: 800; color: #0F172A; display: block; font-variant-numeric: tabular-nums; }
+.stat-trend.positive { color: #10B981; font-size: 0.85rem; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; }
+.mt-4 { margin-top: 1.5rem; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; }

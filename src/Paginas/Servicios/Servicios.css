@@ -1,0 +1,157 @@
+.servicios-page {
+  background-color: #FFFFFF;
+}
+
+/* --- Hero de la página --- */
+.servicios-hero {
+  background-color: #0B1120;
+  color: #FFFFFF;
+  padding: 8rem 5% 4rem;
+  text-align: center;
+}
+
+.servicios-hero h1 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1.15;
+  font-weight: 800;
+  margin: 1rem auto;
+  max-width: 700px;
+}
+
+.servicios-hero p {
+  color: #94A3B8;
+  font-size: 1.1rem;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* --- Listado de servicios --- */
+.servicios-list {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 5rem 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.servicio-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .servicio-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .servicio-row.reverse .servicio-copy { order: 2; }
+  .servicio-row.reverse .servicio-media { order: 1; }
+}
+
+.servicio-copy {
+  position: relative;
+}
+
+.servicio-numero {
+  position: absolute;
+  top: -2.2rem;
+  left: 0;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #EFF6FF;
+  -webkit-text-stroke: 1px #DBEAFE;
+  z-index: 0;
+  user-select: none;
+}
+
+.servicio-icon {
+  position: relative;
+  z-index: 1;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+  color: #2563EB;
+  background: linear-gradient(135deg, #DBEAFE, #EFF6FF);
+}
+
+.servicio-copy h3 {
+  position: relative;
+  z-index: 1;
+  font-size: 1.6rem;
+  color: #1E293B;
+  margin-bottom: 0.9rem;
+  line-height: 1.25;
+}
+
+.servicio-copy p {
+  color: #475569;
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
+}
+
+.servicio-copy .btn-blue-solid {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.servicio-media {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
+}
+
+.servicio-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  transition: transform 0.5s ease;
+}
+
+.servicio-row:hover .servicio-media img {
+  transform: scale(1.04);
+}
+
+/* Cuando todavía no hay foto real: un panel con el ícono del servicio
+   y, si aplica, las integraciones puntuales como chips */
+.servicio-media-fallback {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  color: #93C5FD;
+  background:
+    radial-gradient(circle at 25% 20%, rgba(59, 130, 246, 0.35), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(96, 165, 250, 0.25), transparent 55%),
+    #0B1120;
+}
+
+.servicio-integraciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0 2rem;
+}
+
+.servicio-integracion-chip {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(147, 197, 253, 0.35);
+  color: #E2E8F0;
+  padding: 0.4rem 1rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}

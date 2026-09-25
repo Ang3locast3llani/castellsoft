@@ -1,0 +1,10 @@
+/* Home.css */
+.home-page-container {
+  width: 100%;
+  min-height: 100vh;
+  /* El fondo base será el tono claro "Friendly Tech" */
+  background-color: #FAFBFF;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}

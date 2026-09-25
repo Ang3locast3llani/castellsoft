@@ -1,0 +1,97 @@
+.not-found-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.not-found-eyebrow {
+  margin: 0 auto 0.5rem;
+}
+
+.not-found-code {
+  font-size: clamp(5rem, 16vw, 9rem);
+  font-weight: 800;
+  line-height: 1;
+  color: #F8FAFF;
+  margin-bottom: 0.5rem;
+}
+
+.not-found-subtitle {
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Mascota --- */
+.not-found-robot-wrap {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Los anillos orbitales del ecosistema (Hero), reciclados aquí alrededor del robot */
+.not-found-robot-wrap .orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.not-found-robot-wrap .ring-1 { width: 200px; height: 200px; }
+.not-found-robot-wrap .ring-2 { width: 260px; height: 260px; }
+
+.not-found-robot {
+  position: relative;
+  width: 170px;
+}
+
+.not-found-svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 18px 28px rgba(37, 99, 235, 0.35));
+}
+
+/* El brazo saluda: un vaivén con un pequeño rebote, no un giro mecánico parejo */
+.waving-arm {
+  animation: wave 2.4s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%, 8% { transform: rotate(0deg); }
+  20% { transform: rotate(-22deg); }
+  32% { transform: rotate(6deg); }
+  44% { transform: rotate(-16deg); }
+  56% { transform: rotate(4deg); }
+  68%, 100% { transform: rotate(0deg); }
+}
+
+.antenna-dot {
+  animation: antenna-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes antenna-pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+.chest-light {
+  animation: chest-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes chest-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .waving-arm,
+  .antenna-dot,
+  .chest-light,
+  .not-found-robot.float-a {
+    animation: none;
+  }
+}
