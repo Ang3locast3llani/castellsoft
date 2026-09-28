@@ -193,14 +193,6 @@
   filter: drop-shadow(0 24px 30px rgba(0, 0, 0, 0.5));
 }
 
-/* El video no tiene transparencia real (fondo negro de estudio); el modo de
-   mezcla "screen" hace que ese negro se funda con el fondo oscuro del
-   escenario y solo el personaje quede visible. Las fotos ya son PNG con
-   canal alfa, así que no lo necesitan. */
-.agente-video {
-  mix-blend-mode: screen;
-}
-
 .agente-placeholder {
   position: relative;
   z-index: 1;

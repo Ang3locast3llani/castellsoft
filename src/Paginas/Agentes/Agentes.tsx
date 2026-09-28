@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Check, ArrowRight } from 'lucide-react';
 import Navbar from '../../componentes/layout/NavBar/Navbar';
 import Footer from '../../componentes/Secundarios/footer';
+import ChromaKeyVideo from '../../componentes/ui/ChromaKeyVideo/ChromaKeyVideo';
 import { whatsappLink } from '../../lib/whatsapp';
 import { agentes } from '../../data/agentes';
 import './Agentes.css';
@@ -82,14 +83,7 @@ const Agentes = () => {
                 <div className="agente-pedestal" style={{ backgroundColor: active.color }} />
 
                 {active.video ? (
-                  <video
-                    className="agente-video"
-                    src={active.video}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  />
+                  <ChromaKeyVideo className="agente-video" src={active.video} />
                 ) : active.imagen ? (
                   <img className="agente-foto" src={active.imagen} alt={`${active.nombre}, ${active.rol}`} />
                 ) : (
