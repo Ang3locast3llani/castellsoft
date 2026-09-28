@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1.5rem 5%;
+  padding: 0.6rem 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,7 +21,7 @@
 }
 
 .minimal-header .logo img {
-  height: 34px;
+  height: 64px;
   width: auto;
   display: block;
 }
