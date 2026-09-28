@@ -20,9 +20,9 @@
 }
 
 .site-footer-logo {
-  font-size: 1.3rem;
-  font-weight: 800;
-  color: #FFFFFF;
+  display: block;
+  height: 30px;
+  width: auto;
 }
 
 .site-footer-brand p {

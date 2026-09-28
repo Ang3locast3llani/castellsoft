@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { whatsappLink } from '../../../lib/whatsapp';
+import logoNegro from '../../../assets/logos/Logo_nuevo_transparente_negro.png';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -24,7 +25,9 @@ const Navbar = () => {
     <>
       {/* Cabecera Minimalista */}
       <header className="minimal-header">
-        <Link to="/" className="logo">CastellSoft</Link>
+        <Link to="/" className="logo">
+          <img src={logoNegro} alt="CastellSoft" />
+        </Link>
 
         {/* Navegación entre páginas, visible en escritorio */}
         <nav className="header-links">

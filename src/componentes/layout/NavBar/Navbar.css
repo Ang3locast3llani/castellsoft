@@ -15,11 +15,15 @@
 }
 
 .minimal-header .logo {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #2563EB; /* Color principal */
-  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
   text-decoration: none;
+}
+
+.minimal-header .logo img {
+  height: 34px;
+  width: auto;
+  display: block;
 }
 
 /* --- Navegación entre páginas (Inicio / Servicios), visible en escritorio --- */

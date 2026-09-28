@@ -1,13 +1,14 @@
 // Footer.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logoBlanco from '../../assets/logos/Logo_nuevo_transparente_blanco.png';
 import './footer.css';
 
 const Footer = () => (
   <footer className="site-footer">
     <div className="site-footer-inner">
       <div className="site-footer-brand">
-        <span className="site-footer-logo">CastellSoft</span>
+        <img className="site-footer-logo" src={logoBlanco} alt="CastellSoft" />
         <p>Agentes de IA y automatizaciones a la medida para tu negocio.</p>
       </div>
 
