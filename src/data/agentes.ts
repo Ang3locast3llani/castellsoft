@@ -1,11 +1,11 @@
-import sofiaImg from '../assets/agentes/Sofia.png';
+import sofiaImg from '../assets/agentes/Sofia.webp';
 import sofiaVideo from '../assets/agentes/sofia saludo.mp4';
-import camilaImg from '../assets/agentes/Camila.png';
-import valentinaImg from '../assets/agentes/Valentina.png';
-import maxImg from '../assets/agentes/Max.png';
-import martinaImg from '../assets/agentes/Martina.png';
-import isabellaImg from '../assets/agentes/Isabella.png';
-import alejandroImg from '../assets/agentes/Alejandro.png';
+import camilaImg from '../assets/agentes/Camila.webp';
+import valentinaImg from '../assets/agentes/Valentina.webp';
+import maxImg from '../assets/agentes/Max.webp';
+import martinaImg from '../assets/agentes/Martina.webp';
+import isabellaImg from '../assets/agentes/Isabella.webp';
+import alejandroImg from '../assets/agentes/Alejandro.webp';
 
 export type Agente = {
   id: string;
